@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SuperHero</string>
+    <string name="description_img_super_hero">Imagen Super Heroe</string>
 </resources>
