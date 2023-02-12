@@ -9,9 +9,11 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.ereyes.superhero.R
 import com.ereyes.superhero.common.entities.ResultSuperHero
 import com.ereyes.superhero.common.utils.Constants
 import com.ereyes.superhero.databinding.FragmentSuperHeroesBinding
+import com.ereyes.superhero.detalleSuperHero.view.DetalleSuperHeroFragment
 import com.ereyes.superhero.superHeroesModule.adapters.OnClickListener
 import com.ereyes.superhero.superHeroesModule.adapters.SuperHeroAdapter
 import com.ereyes.superhero.superHeroesModule.viewModel.SuperHeroViewModel
@@ -76,7 +78,14 @@ class SuperHeroesFragment : Fragment(), OnClickListener {
     }
 
     override fun onClick(superHero: ResultSuperHero) {
-        Snackbar.make(mBinding.root, superHero.Biography.FullName, Snackbar.LENGTH_LONG).show()
+        openDetailSuperHero(superHero)
+    }
+
+    private fun openDetailSuperHero(superHero: ResultSuperHero) {
+        parentFragmentManager.beginTransaction()
+            .add(R.id.containerMain, DetalleSuperHeroFragment())
+            .addToBackStack(null)
+            .commit()
     }
 
     fun hideKeyboard(context: Context, view: View){
