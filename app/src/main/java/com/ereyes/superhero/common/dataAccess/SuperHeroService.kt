@@ -19,4 +19,10 @@ interface SuperHeroService {
         @Path("access-token") AccessToken: String,
         @Path("name") Name: String
     ): SuperHero
+
+    @GET("api/{access-token}/{id}")
+    suspend fun getSuperHeroById(
+        @Path("access-token") AccessToken: String,
+        @Path("id") Id: Int
+    ): ResultSuperHero
 }
