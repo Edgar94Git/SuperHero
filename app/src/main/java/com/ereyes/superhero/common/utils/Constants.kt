@@ -9,4 +9,5 @@ package com.ereyes.superhero.common.utils
 object Constants {
     const val BASE_URL = "https://superheroapi.com"
     const val ACCESS_TOKEN = "5783819735068617"
+    const val ID_SUPER_HERO = "IdSuperHero"
 }

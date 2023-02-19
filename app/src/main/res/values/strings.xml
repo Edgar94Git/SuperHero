@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">SuperHero</string>
     <string name="description_img_super_hero">Imagen Super Heroe</string>
+    <string name="text_full_name">Full Name:</string>
+    <string name="text_name">Name</string>
+    <string name="text_biography">Biography</string>
+    <string name="text_alter_egos">Alter Egos:</string>
+    <string name="text_search">Search Super Hero</string>
+    <string name="text_aliases">Aliases:</string>
+    <string name="text_power_stats">Power Stats</string>
+    <string name="text_intelligence">Intelligence</string>
+    <string name="text_strength">Strength</string>
+    <string name="text_combat">Combat</string>
+    <string name="text_power">Power</string>
+    <string name="text_durability">Durability</string>
+    <string name="text_speed">Speed</string>
 </resources>

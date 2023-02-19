@@ -14,6 +14,7 @@ import com.ereyes.superhero.common.entities.ResultSuperHero
 import com.ereyes.superhero.common.utils.Constants
 import com.ereyes.superhero.databinding.FragmentSuperHeroesBinding
 import com.ereyes.superhero.detalleSuperHero.view.DetalleSuperHeroFragment
+import com.ereyes.superhero.detalleSuperHero.viewModel.DetalleSuperHeroViewModel
 import com.ereyes.superhero.superHeroesModule.adapters.OnClickListener
 import com.ereyes.superhero.superHeroesModule.adapters.SuperHeroAdapter
 import com.ereyes.superhero.superHeroesModule.viewModel.SuperHeroViewModel
@@ -25,10 +26,12 @@ class SuperHeroesFragment : Fragment(), OnClickListener {
     private lateinit var mViewModel: SuperHeroViewModel
     private lateinit var mAdapter: SuperHeroAdapter
     private lateinit var mGridLayoutManager: GridLayoutManager
+    private lateinit var mViewModelDetalle: DetalleSuperHeroViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewModel = ViewModelProvider(requireActivity())[SuperHeroViewModel::class.java]
+        mViewModelDetalle = ViewModelProvider(requireActivity())[DetalleSuperHeroViewModel::class.java]
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -78,12 +81,18 @@ class SuperHeroesFragment : Fragment(), OnClickListener {
     }
 
     override fun onClick(superHero: ResultSuperHero) {
-        openDetailSuperHero(superHero)
+        openDetailSuperHero(superHero.Id)
     }
 
-    private fun openDetailSuperHero(superHero: ResultSuperHero) {
+    private fun openDetailSuperHero(idSuperHero: Int) {
+        val arg = Bundle()
+        arg.putInt(Constants.ID_SUPER_HERO, idSuperHero)
+
+        val fragment = DetalleSuperHeroFragment()
+        fragment.arguments = arg
+
         parentFragmentManager.beginTransaction()
-            .add(R.id.containerMain, DetalleSuperHeroFragment())
+            .replace(R.id.containerMain, fragment)
             .addToBackStack(null)
             .commit()
     }
