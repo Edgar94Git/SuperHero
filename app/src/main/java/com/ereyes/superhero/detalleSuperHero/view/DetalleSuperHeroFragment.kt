@@ -80,7 +80,7 @@ class DetalleSuperHeroFragment : Fragment() {
     }
 
     private fun showTextView(view: TextView, text: String){
-        view.visibility = if(text == "") View.GONE else View.VISIBLE
+        view.visibility = if(text == "" || text == "null") View.GONE else View.VISIBLE
         view.text = text
     }
 
