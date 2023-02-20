@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -14,6 +15,7 @@ import com.ereyes.superhero.common.entities.ResultSuperHero
 import com.ereyes.superhero.common.utils.Constants
 import com.ereyes.superhero.databinding.FragmentDetalleSuperHeroBinding
 import com.ereyes.superhero.detalleSuperHero.viewModel.DetalleSuperHeroViewModel
+import com.google.android.material.snackbar.Snackbar
 import kotlin.math.roundToInt
 
 class DetalleSuperHeroFragment : Fragment() {
@@ -28,7 +30,7 @@ class DetalleSuperHeroFragment : Fragment() {
         getSuperHeroById()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         mBinding = FragmentDetalleSuperHeroBinding.inflate(inflater, container, false)
         return mBinding.root
     }
@@ -40,7 +42,7 @@ class DetalleSuperHeroFragment : Fragment() {
 
     private fun getSuperHeroById() {
         arguments.let { arg ->
-            mIdSuperHero = arg!!.getInt(Constants.ID_SUPER_HERO)
+            mIdSuperHero = arg?.getInt(Constants.ID_SUPER_HERO) ?: 0
             mViewModel.getSuperHeroById(mIdSuperHero, Constants.ACCESS_TOKEN)
         }
     }
@@ -61,12 +63,15 @@ class DetalleSuperHeroFragment : Fragment() {
             prepareDetailSuperHero(superHero)
             preparePowerStats(superHero.Powerstats)
         }
+        mViewModel.getSnackBarMsg().observe(viewLifecycleOwner){ msg ->
+            Snackbar.make(mBinding.root, msg, Snackbar.LENGTH_LONG).show()
+        }
     }
 
     private fun prepareDetailSuperHero(superHero: ResultSuperHero) {
-        mBinding.tvName.text = superHero.Name
-        mBinding.tvFullName.text = superHero.Biography.FullName
-        mBinding.tvPublisher.text = superHero.Biography.Publisher
+        showTextView(mBinding.tvName, superHero.Name)
+        showTextView(mBinding.tvFullName, superHero.Biography.FullName)
+        showTextView(mBinding.tvPublisher, superHero.Biography.Publisher)
         Glide.with(this)
             .load(superHero.Image.Url)
             .centerCrop()
@@ -74,9 +79,14 @@ class DetalleSuperHeroFragment : Fragment() {
             .into(mBinding.imgSuperHero)
     }
 
+    private fun showTextView(view: TextView, text: String){
+        view.visibility = if(text == "") View.GONE else View.VISIBLE
+        view.text = text
+    }
+
     private fun updateHeight(view: View, stat: String){
         val params = view.layoutParams
-        params.height = pxToD(stat.toFloat())
+        params.height = pxToD(if(stat=="null") 0f else stat.toFloat())
         view.layoutParams = params
     }
 
