@@ -69,135 +69,164 @@
                 android:textSize="11sp"
                 tools:text="DC Comics" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginHorizontal="16dp"
-                android:gravity="bottom"
-                android:layout_marginTop="24dp"
-                android:orientation="horizontal">
-
-                <FrameLayout
-                    android:id="@+id/viewIntelligence"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@color/lima"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_weight="1">
-                </FrameLayout>
-
-                <View
-                    android:id="@+id/viewStrength"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@color/aqua"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_weight="1"/>
-
-                <View
-                    android:id="@+id/viewSpeed"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@color/yellow"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_weight="1"/>
-
-                <View
-                    android:id="@+id/viewDurability"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@color/purple"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_weight="1"/>
-
-                <View
-                    android:id="@+id/viewPower"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@color/black"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_weight="1"/>
-
-                <View
-                    android:id="@+id/viewCombat"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@color/coral"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_weight="1"/>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:gravity="bottom"
-                android:layout_marginTop="4dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="@dimen/common_margin_min"
+                android:layout_marginEnd="@dimen/common_margin_min"
+                android:layout_marginStart="@dimen/common_margin_min"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="@dimen/common_margin_min"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/blue">
 
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="4dp"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:text="@string/text_intelligence"
-                    android:textSize="11sp"
-                    android:layout_weight="1"/>
+                    android:padding="@dimen/common_margin_min"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:text="@string/text_strength"
-                    android:layout_height="wrap_content"
-                    android:textSize="11sp"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_weight="1"/>
+                    <TextView
+                        android:text="@string/text_power_stats"
+                        android:textColor="@color/black"
+                        android:textSize="22sp"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:text="@string/text_speed"
-                    android:textSize="11sp"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_weight="1"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginHorizontal="16dp"
+                        android:gravity="bottom"
+                        android:layout_marginTop="24dp"
+                        android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:text="@string/text_durability"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:layout_height="wrap_content"
-                    android:textSize="11sp"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_weight="1"/>
+                        <FrameLayout
+                            android:id="@+id/viewIntelligence"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@color/lima"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight="1">
+                        </FrameLayout>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:text="@string/text_power"
-                    android:layout_height="wrap_content"
-                    android:textSize="11sp"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_weight="1"/>
+                        <View
+                            android:id="@+id/viewStrength"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@color/aqua"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight="1"/>
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:text="@string/text_combat"
-                    android:layout_height="wrap_content"
-                    android:textSize="11sp"
-                    android:singleLine="true"
-                    android:maxLines="1"
-                    android:layout_marginHorizontal="4dp"
-                    android:layout_weight="1"/>
+                        <View
+                            android:id="@+id/viewSpeed"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@color/yellow"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight="1"/>
 
-            </LinearLayout>
+                        <View
+                            android:id="@+id/viewDurability"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@color/purple"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight="1"/>
+
+                        <View
+                            android:id="@+id/viewPower"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@color/black"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight="1"/>
+
+                        <View
+                            android:id="@+id/viewCombat"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@color/coral"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight="1"/>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:gravity="bottom"
+                        android:layout_marginTop="4dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="4dp"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:text="@string/text_intelligence"
+                            android:textSize="11sp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:text="@string/text_strength"
+                            android:layout_height="wrap_content"
+                            android:textSize="11sp"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:text="@string/text_speed"
+                            android:textSize="11sp"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:text="@string/text_durability"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:layout_height="wrap_content"
+                            android:textSize="11sp"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:text="@string/text_power"
+                            android:layout_height="wrap_content"
+                            android:textSize="11sp"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:text="@string/text_combat"
+                            android:layout_height="wrap_content"
+                            android:textSize="11sp"
+                            android:singleLine="true"
+                            android:maxLines="1"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
 
