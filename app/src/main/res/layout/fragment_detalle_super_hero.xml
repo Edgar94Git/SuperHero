@@ -89,7 +89,7 @@
                     <TextView
                         android:text="@string/text_power_stats"
                         android:textColor="@color/black"
-                        android:textSize="22sp"
+                        android:textSize="20sp"
                         android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
