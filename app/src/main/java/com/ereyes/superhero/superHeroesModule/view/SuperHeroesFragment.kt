@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ereyes.superhero.R
@@ -43,13 +44,20 @@ class SuperHeroesFragment : Fragment(), OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         setUpRecyclerView(mutableListOf(), 2)
         setUpObservers()
-        setUpButton()
+        setUpSearchView()
     }
 
-    private fun setUpButton() {
-        mBinding.btnSearch.setOnClickListener {
-            listSuperHeroByName()
-        }
+    private fun setUpSearchView() {
+        mBinding.swSearch.setOnQueryTextListener(
+            object: SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    mViewModel.listSuperHeroByName(query.orEmpty(), Constants.ACCESS_TOKEN)
+                    return false
+                }
+
+                override fun onQueryTextChange(newText: String?) = false
+            }
+        )
     }
 
     private fun setUpObservers() {
@@ -72,12 +80,6 @@ class SuperHeroesFragment : Fragment(), OnClickListener {
             layoutManager = mGridLayoutManager
             adapter = mAdapter
         }
-    }
-
-    private fun listSuperHeroByName(){
-        hideKeyboard(requireActivity(), mBinding.root)
-        val superHero = mBinding.tvSearch.text.toString().trim()
-        mViewModel.listSuperHeroByName(superHero, Constants.ACCESS_TOKEN)
     }
 
     override fun onClick(superHero: ResultSuperHero) {
