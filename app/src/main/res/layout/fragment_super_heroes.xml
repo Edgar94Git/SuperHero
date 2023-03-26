@@ -6,39 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".superHeroesModule.view.SuperHeroesFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilSearch"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/swSearch"
         android:layout_width="0dp"
+        android:layout_marginHorizontal="@dimen/common_margin_min"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_margin_min"
         android:layout_marginTop="@dimen/common_margin_min"
-        android:hint="@string/text_search"
-        app:endIconMode="clear_text"
-        app:layout_constraintEnd_toStartOf="@id/btnSearch"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_search">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tvSearch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <ImageButton
-        android:id="@+id/btnSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_margin_min"
-        android:layout_marginEnd="@dimen/common_margin_min"
-        android:contentDescription="@string/description_img_super_hero"
-        android:src="@drawable/ic_search"
-        app:layout_constraintBottom_toBottomOf="@id/tilSearch"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tilSearch"
-        app:layout_constraintTop_toTopOf="@id/tilSearch" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSuperHero"
@@ -46,7 +22,7 @@
         android:layout_height="0dp"
         android:layout_marginEnd="@dimen/common_margin_min"
         android:layout_marginBottom="@dimen/common_margin_min"
-        app:layout_constraintTop_toBottomOf="@id/tilSearch"
+        app:layout_constraintTop_toBottomOf="@id/swSearch"
         tools:listitem="@layout/item_super_hero" />
 
     <ProgressBar
