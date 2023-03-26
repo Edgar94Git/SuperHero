@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/common_margin_min"
-    android:layout_marginTop="@dimen/common_margin_min">
+    android:layout_marginTop="@dimen/common_margin_min"
+    app:cardCornerRadius="@dimen/common_margin_default">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,8 +17,8 @@
             android:id="@+id/imgSuperHero"
             android:layout_width="@dimen/common_margin_none"
             android:layout_height="@dimen/common_margin_none"
-            android:contentDescription="@string/description_img_super_hero"
             android:background="@android:color/darker_gray"
+            android:contentDescription="@string/description_img_super_hero"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="H, 4:3"
             app:layout_constraintEnd_toEndOf="parent"
